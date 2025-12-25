@@ -27,7 +27,6 @@ def test_show_all_pets(driver):
         assert len(parts[0]) > 0
         assert len(parts[1]) > 0
 
-@pytest.mark.skip(reason="tested")
 def test_show_my_pets(driver):
     driver.find_element(By.ID, 'email').send_keys('vasya@mail.com')
     driver.find_element(By.ID, 'pass').send_keys('12345')
@@ -70,4 +69,5 @@ def test_show_my_pets(driver):
     assert has_image >= int(pet_count)//2, "Less than half pets have an image"
     assert has_name_age_type, "Not all pets have name, age or type"
     assert len(unique_names) == len(names), "Not all pets have unique names"
+
     assert len(unique_pets) == len(names), "Not all pets are unique"
